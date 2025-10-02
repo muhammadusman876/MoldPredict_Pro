@@ -8,7 +8,7 @@ An end-to-end system that predicts and prevents mold growth by analyzing environ
 
 ## Architecture
 
-**Complete Pipeline:** Arduino Sensors → Python Logger → XGBoost Model → FastAPI Backend → React Dashboard  
+**Complete Pipeline:** Arduino Sensors → Python Logger → XGBoost Model → FastAPI server → React Dashboard  
 **AI Enhancement:** LangGraph workflow orchestration + RAG knowledge retrieval for intelligent recommendations
 
 ## Key Features
@@ -17,7 +17,7 @@ An end-to-end system that predicts and prevents mold growth by analyzing environ
 - **Predictive ML**: XGBoost model (R² ≥ 0.90, 15-minute ahead forecasting)
 - **Physics-Based**: Delta absolute humidity calculations for optimal actions
 - **Smart Recommendations**: Energy-efficient mold prevention strategies
-- **Full-Stack Web App**: React frontend + FastAPI backend
+- **Full-Stack Web App**: React client + FastAPI server
 - **Intelligent AI**: LangGraph + RAG for contextual environmental advice
 
 ## Tech Stack
@@ -27,7 +27,7 @@ An end-to-end system that predicts and prevents mold growth by analyzing environ
 - **ESP32-C3 SuperMini** - Microcontroller
 - **DHT22** - High-precision temperature & humidity sensor
 
-### Backend
+### server
 
 - **FastAPI** - REST API and real-time data processing
 - **XGBoost** - ML model for humidity prediction
@@ -35,7 +35,7 @@ An end-to-end system that predicts and prevents mold growth by analyzing environ
 - **LangGraph** - Multi-agent workflow orchestration
 - **RAG + LLM** - Contextual knowledge retrieval
 
-### Frontend
+### client
 
 - **React** - Interactive real-time dashboard
 - **Recharts** - Live sensor data visualization
@@ -47,29 +47,29 @@ An end-to-end system that predicts and prevents mold growth by analyzing environ
 
 ```bash
 # Backend
-cd backend
+cd server
 pip install -r requirements.txt
 
 # Frontend
-cd frontend
+cd client
 npm install
 ```
 
 ### 2. Launch Application
 
 ```bash
-# Start backend server
-cd backend
+# Start server 
+cd server
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
-# Start React frontend
-cd frontend
+# Start React client
+cd client
 npm start
 ```
 
 ### 3. Access Dashboard
 
-- **Frontend**: http://localhost:3000 - Intelligent mold prevention dashboard
+- **client**: http://localhost:3000 - Intelligent mold prevention dashboard
 - **User Configuration**: Room settings, environmental conditions, comfort preferences
 - **AI-Powered Recommendations**: Context-aware advice based on user inputs and sensor data
 - **Interactive Controls**: Real-time adjustment of room conditions and prevention strategies
